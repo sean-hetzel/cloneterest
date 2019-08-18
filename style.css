@@ -1,0 +1,40 @@
+body {
+    background-color: #1f1f1f;
+    font-family: "open-sans";
+}
+
+/* .parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 2em
+} */
+
+h1,
+h2 {
+    font-family: "Open-Sans", sans-serif;
+    color: rgb(204, 204, 204);
+}
+
+#title {
+    text-align: center;
+    font-size: 3em;
+    padding: 1em
+}
+
+/* .pin_card {
+    padding: 1em;
+} */
+
+.parent { /* Masonry container */
+    column-count: 4;
+    column-gap: 1em;
+  }
+  
+  .pin_card { /* Masonry bricks or child elements */
+    display: inline-block;
+    margin: 3em 3em 3em;
+    width: 100%;
+  }
