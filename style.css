@@ -12,29 +12,79 @@ body {
     padding: 2em
 } */
 
+a,
+p,
 h1,
 h2 {
     font-family: "Open-Sans", sans-serif;
     color: rgb(204, 204, 204);
 }
 
+#contact {
+    float: right;
+    margin-right: 1em;
+    margin-top: -1em;
+}
+
+#github_img {
+    height: 5em;
+}
+
 #title {
     text-align: center;
     font-size: 3em;
-    padding: 1em
+    padding: 1em;
 }
 
-/* .pin_card {
-    padding: 1em;
-} */
+input {
+    border: 2px solid rgb(204, 204, 204);
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #1f1f1f;
+}
 
-.parent { /* Masonry container */
+#submit_button {
+    background-color: #1f1f1f;
+    border: 2px solid rgb(204, 204, 204);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    margin: 8px 0px;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: white;
+}
+
+#new_pin_div {
+    margin-left: 3em;
+    width: 50em;
+}
+
+.parent {
     column-count: 4;
     column-gap: 1em;
-  }
-  
-  .pin_card { /* Masonry bricks or child elements */
+}
+
+.pin_card {
     display: inline-block;
     margin: 3em 3em 3em;
     width: 100%;
-  }
+}
+
+img {
+    cursor: pointer;
+}
+
+.delete_post {
+    background-color: #1f1f1f;
+    border: 2px solid rgb(204, 204, 204);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
