@@ -10,7 +10,7 @@ fetch(URL)
     });
 
 function renderPins(json) {
-    json.forEach(function(pin) {
+    json.reverse().forEach(function(pin) {
         console.log(pin.url);
         const pinCard = document.createElement("div");
         pinCard.classList.add("pin_card");
