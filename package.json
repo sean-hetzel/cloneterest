@@ -5,7 +5,7 @@
     "main": "src/index.js",
     "scripts": {
         "start": "node index.js",
-        "build": "webpack"
+        "build": "ng build"
     },
     "repository": {
         "type": "git",
