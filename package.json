@@ -2,11 +2,7 @@
     "name": "cloneterest",
     "version": "1.0.0",
     "description": "Like Pinterest but better",
-    "main": "src/index.js",
-    "scripts": {
-        "start": "node index.js",
-        "build": "ng build"
-    },
+    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com:Seanhetzel/cloneterest.git"
@@ -20,8 +16,5 @@
     ],
     "author": "Sean Hetzel",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/learn-co-curriculum/js-task-lister-project/issues"
-    },
     "homepage": "https://github.com/Seanhetzel/cloneterest"
 }
