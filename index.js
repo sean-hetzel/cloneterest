@@ -1,5 +1,7 @@
+PORT = 3000 || process.env.PORT;
+
 // URL for json file of pins
-URL = "http://localhost:3000/pins";
+URL = `http://localhost:${PORT}/pins`;
 
 // create form for posting a pin
 const add_pin_form = document.createElement("form");
@@ -34,7 +36,7 @@ document.getElementById("new_pin_div").addEventListener("submit", event => {
 
 // fetch post to add pin to pins.json database given to formData from add_pin_form
 function addPost(postData) {
-    fetch("http://localhost:3000/pins", {
+    fetch(URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
