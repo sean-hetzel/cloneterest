@@ -1,75 +1,38 @@
+// URL for json file of pins
 URL = "http://localhost:3000/pins";
 
-fetch(URL)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(json) {
-        console.log(json);
-        renderPins(json);
-    });
-
-function renderPins(json) {
-    json.reverse().forEach(function(pin) {
-        console.log(pin.url);
-        const pinCard = document.createElement("div");
-        pinCard.classList.add("pin_card");
-        const pinImage = document.createElement("img");
-        pinImage.src = pin.url;
-        pinImage.alt = pin.name;
-        pinImage.onclick = function() {
-            window.location.href = pin.url;
-        };
-
-        const pinName = document.createElement("h2");
-        pinName.textContent = pin.name;
-
-        const pinDesc = document.createElement("p");
-        pinDesc.textContent = pin.description;
-        pinCard.appendChild(pinImage);
-        pinCard.appendChild(pinName);
-        pinCard.appendChild(pinDesc);
-
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete_post");
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", () => {
-            fetch(`${URL}/${pin.id}`, { method: "DELETE" });
-        });
-        pinCard.appendChild(deleteButton);
-        document.getElementById("pins_div").appendChild(pinCard);
-    });
-
-    const add_pin_form = document.createElement("form");
-    const imageUrl = document.createElement("input");
-    const imageName = document.createElement("input");
-    const imageDesc = document.createElement("input");
-    const submitButton = document.createElement("button");
-    imageUrl.placeholder = "Image URL";
-    imageName.placeholder = "Name (optional)";
-    imageDesc.placeholder = "Description (optional)";
-    submitButton.textContent = "Share";
-    submitButton.id = "submit_button";
-    add_pin_form.appendChild(imageUrl);
-    add_pin_form.appendChild(imageName);
-    add_pin_form.appendChild(imageDesc);
-    add_pin_form.appendChild(submitButton);
-    document.getElementById("new_pin_div").appendChild(add_pin_form);
-}
-
+// create form for posting a pin
+const add_pin_form = document.createElement("form");
+const imageUrl = document.createElement("input");
+const imageName = document.createElement("input");
+const imageDesc = document.createElement("input");
+const submitButton = document.createElement("button");
+// adding attributes
+imageUrl.placeholder = "Image URL";
+imageName.placeholder = "Name (optional)";
+imageDesc.placeholder = "Description (optional)";
+submitButton.textContent = "Share";
+submitButton.id = "submit_button";
+// appending form elements to add_pin_form
+add_pin_form.appendChild(imageUrl);
+add_pin_form.appendChild(imageName);
+add_pin_form.appendChild(imageDesc);
+add_pin_form.appendChild(submitButton);
+// add add_pin_form to new_pin_div
+document.getElementById("new_pin_div").appendChild(add_pin_form);
+// add event listener to submit button for add_pin_form and fetch post do add post function
 document.getElementById("new_pin_div").addEventListener("submit", event => {
     event.preventDefault();
-    console.log(event);
     postData = {
-        url: event.target[0].value,
-        name: event.target[1].value,
-        description: event.target[2].value
+        url: event.target[0].value, // image url
+        name: event.target[1].value, // name
+        description: event.target[2].value // description
     };
     addPost(postData);
-    add_pin_form.reset();
-    console.log(postData);
+    add_pin_form.reset(); // reset form
 });
 
+// fetch post to add pin to pins.json database given to formData from add_pin_form
 function addPost(postData) {
     fetch("http://localhost:3000/pins", {
         method: "POST",
@@ -78,12 +41,59 @@ function addPost(postData) {
             Accept: "application/json"
         },
         body: JSON.stringify({
-            url: postData.url,
-            name: postData.name,
-            description: postData.description
+            url: postData.url, // save image url do database
+            name: postData.name, // save name do database
+            description: postData.description // save description do database
         })
     });
 }
+
+// fetch all image pins on page load
+fetch(URL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(json) {
+        renderPins(json);
+    });
+
+// render pins
+function renderPins(json) {
+    json.reverse().forEach(function(pin) {
+        // create pin card
+        const pinCard = document.createElement("div");
+        pinCard.classList.add("pin_card");
+        // create image with link to view larger
+        const pinImage = document.createElement("img");
+        pinImage.src = pin.url;
+        pinImage.alt = pin.name;
+        pinImage.onclick = function() {
+            window.location.href = pin.url;
+        };
+        // create pin name
+        const pinName = document.createElement("h2");
+        pinName.textContent = pin.name;
+        // create pin description
+        const pinDesc = document.createElement("p");
+        pinDesc.textContent = pin.description;
+        // create delete button with fetch to delete pin from pins.json database
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete_post");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+            fetch(`${URL}/${pin.id}`, { method: "DELETE" });
+        });
+        // append image, name, description & delete button to pin card
+        pinCard.appendChild(pinImage);
+        pinCard.appendChild(pinName);
+        pinCard.appendChild(pinDesc);
+        pinCard.appendChild(deleteButton);
+        // append pin to pins div
+        document.getElementById("pins_div").appendChild(pinCard);
+    });
+}
+
+// console log message after page is finished loading
 document.addEventListener("DOMContentLoaded", () => {
     console.log("%c DOM Content Loaded and Parsed!", "color: magenta");
 });
