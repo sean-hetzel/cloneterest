@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("%c DOM Content Loaded and Parsed!", "color: magenta");
 PORT = 3000 || process.env.PORT;
 
 // URL for json file of pins
@@ -95,7 +97,4 @@ function renderPins(json) {
     });
 }
 
-// console log message after page is finished loading
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("%c DOM Content Loaded and Parsed!", "color: magenta");
 });
