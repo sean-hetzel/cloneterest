@@ -16,6 +16,7 @@ function renderPins(json) {
         pinCard.classList.add("pin_card");
         const pinImage = document.createElement("img");
         pinImage.src = pin.url;
+        pinImage.alt = pin.name;
         pinImage.onclick = function() {
             window.location.href = pin.url;
         };

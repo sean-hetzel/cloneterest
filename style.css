@@ -3,15 +3,6 @@ body {
     font-family: "open-sans";
 }
 
-/* .parent {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    padding: 2em
-} */
-
 a,
 p,
 h1,
@@ -67,9 +58,9 @@ input {
 }
 
 .parent {
-    column-count: 3;
+    column-count: 4;
     margin: 2em 2em 2em 2em;
-    column-width: 30em
+    column-width: 25%;
 }
 
 .pin_card {
@@ -80,7 +71,7 @@ input {
 
 img {
     cursor: pointer;
-    width: 95%
+    width: 95%;
 }
 
 .delete_post {
