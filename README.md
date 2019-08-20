@@ -14,9 +14,11 @@ The images are ordered from newest to oldest in descending order. They are organ
 x. Be able to upload an image from your computer instead of pasting a link.
 6. Add error message when URL input in form is left blank.
 7. Add an option to sort the images from most liked to least liked in descending order.
-8. Deploy on Heroku
+8. Change db that is compatible with Heroku
+9. Deploy to Heroku
 
 # Bugs:
-[ ] render pin to frontend when added and remove it from front end when deleted
+[x] render pin to frontend when added and remove it from front end when deleted
+[ ] consider changing image sizing method
 
 Please contact me for questions: seanhetzel1@gmail.com
