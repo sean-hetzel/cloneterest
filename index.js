@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("%c DOM Content Loaded and Parsed!", "color: magenta");
 
-    PORT = 3000; // || process.env.PORT;
+    // PORT = 3000;
 
     // URL for json file of pins
-    URL = `http://localhost:${PORT}/pins`;
+    // URL = `http://localhost:${PORT}/pins`;
+
+    // Heroku URL:
+    URL = "https://shrouded-savannah-12292.herokuapp.com/api/v1/pins"
 
     //////////////////////////////// FORM START ///////////////////////////////////
     // create form for posting a pin
@@ -58,9 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 Accept: "application/json"
             },
             body: JSON.stringify({
-                url: postData.url, // save image url do database
                 name: postData.name, // save name do database
-                description: postData.description // save description do database
+                description: postData.description, // save description do database
+                url: postData.url // save image url do database
             })
         })
             .then(response => response.json())
