@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // create pin name input
     const imageName = document.createElement("input");
-    imageName.placeholder = "Name (optional)";
+    imageName.placeholder = "Title (optional)";
 
     // create pin description input
     const imageDesc = document.createElement("input");
