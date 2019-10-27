@@ -82,3 +82,73 @@ img {
     text-decoration: none;
     cursor: pointer;
 }
+
+.confirm_delettion {
+    background-color: #1f1f1f;
+    border: 2px solid red;
+    color: red;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.loading {
+    animation: clockwise 1.5s linear infinite;
+    display: block;
+    height: 10em;
+    width: 10em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10em;
+    margin-left: -10em;
+}
+
+.loading,
+.loading:before,
+.loading:after {
+    border: 0.2em solid transparent;
+    border-radius: 50%;
+    border-top-color: rgba(204, 204, 204);
+    margin: auto;
+}
+
+.loading:before,
+.loading:after {
+    content: "";
+    position: absolute;
+}
+
+.loading:before {
+    animation: anticlockwise 0.9s linear infinite;
+    top: -0.6em;
+    right: -0.6em;
+    bottom: -0.6em;
+    left: -0.6em;
+}
+
+.loading:after {
+    animation: anticlockwise 0.66s linear infinite;
+    top: 0.3em;
+    right: 0.3em;
+    bottom: 0.3em;
+    left: 0.3em;
+}
+
+@keyframes clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes anticlockwise {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

@@ -72,6 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
+    // loading spinner
+    const loading = document.createElement("div");
+    loading.classList.add("loading");
+    loading.id = "loading";
+    document.getElementById("new_pin_div").appendChild(loading);
+
     // fetch all image pins on page load
     fetch(URL)
         .then(function(response) {
@@ -79,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(function(json) {
             json.forEach(function(pin) {
+                document.getElementById("loading").style.display = "none";
                 renderPins(pin);
             });
         });
@@ -106,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pinDesc.textContent = pin.description;
 
         const deleteConfirmButton = document.createElement("button");
-        deleteConfirmButton.classList.add("delete_post");
+        deleteConfirmButton.classList.add("confirm_deletion");
         deleteConfirmButton.textContent = "Confirm Deletion";
         deleteConfirmButton.style.display = "none";
 
