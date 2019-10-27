@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // URL = `http://localhost:${PORT}/pins`;
 
     // Heroku URL:
-    URL = "https://shrouded-savannah-12292.herokuapp.com/api/v1/pins"
+    URL = "https://shrouded-savannah-12292.herokuapp.com/api/v1/pins";
 
     //////////////////////////////// FORM START ///////////////////////////////////
     // create form for posting a pin
@@ -105,11 +105,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const pinDesc = document.createElement("p");
         pinDesc.textContent = pin.description;
 
+        const deleteConfirmButton = document.createElement("button");
+        deleteConfirmButton.classList.add("delete_post");
+        deleteConfirmButton.textContent = "Confirm Deletion";
+        deleteConfirmButton.style.display = "none";
+
         // create delete button with fetch to delete pin from pins.json database
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete_post");
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
+            deleteButton.style.display = "none";
+            deleteConfirmButton.style.display = "block";
+        });
+        deleteConfirmButton.addEventListener("click", () => {
             fetch(`${URL}/${pin.id}`, { method: "DELETE" });
             pinCard.remove();
         });
@@ -119,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pinCard.appendChild(pinName);
         pinCard.appendChild(pinDesc);
         pinCard.appendChild(deleteButton);
+        pinCard.appendChild(deleteConfirmButton);
 
         // append pin to pins div
         document.getElementById("pins_div").prepend(pinCard);
