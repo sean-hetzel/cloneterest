@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("%c DOM Content Loaded and Parsed!", "color: magenta");
+    console.log("%c Clone of Pinterest made by Sean Hetzel", "color: cyan");
 
     // PORT = 3000;
 
