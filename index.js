@@ -112,14 +112,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const pinDesc = document.createElement("p");
         pinDesc.textContent = pin.description;
 
+        // create like button
+        const likeButton = document.createElement("img")
+        likeButton.classList.add("heart", "button")
+        likeButton.src = "Heart-icon-outline.png"
+        likeButton.alt = "Like"
+
+        // create like count
+        const likeCount = document.createElement("p")
+        likeCount.classList.add("like_count")
+        likeCount.textContent = "10"
+
+        // create confirm deletion button
         const deleteConfirmButton = document.createElement("button");
-        deleteConfirmButton.classList.add("confirm_deletion");
+        deleteConfirmButton.classList.add("confirm_deletion", "button");
         deleteConfirmButton.textContent = "Confirm Deletion";
         deleteConfirmButton.style.display = "none";
 
         // create delete button with fetch to delete pin from pins.json database
         const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete_post");
+        deleteButton.classList.add("delete_post", "button");
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
             deleteButton.style.display = "none";
@@ -134,6 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
         pinCard.appendChild(pinImage);
         pinCard.appendChild(pinName);
         pinCard.appendChild(pinDesc);
+        pinCard.appendChild(likeButton)
+        pinCard.appendChild(likeCount)
         pinCard.appendChild(deleteButton);
         pinCard.appendChild(deleteConfirmButton);
 

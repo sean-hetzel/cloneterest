@@ -66,12 +66,28 @@ input {
 .pin_card {
     display: inline-block;
     margin: 1em 1em 1em;
-    width: 100%;
+    width: 95%;
 }
 
 img {
     cursor: pointer;
-    width: 95%;
+    width: 100%;
+}
+
+.button {
+    background-color: #1f1f1f;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.heart {
+    width: 2em;
+    height: auto;
+}
+
+.like_count {
+    display: inline-flex;
+    margin-left: .25em;
 }
 
 .delete_post {
@@ -79,8 +95,7 @@ img {
     border: 2px solid rgb(204, 204, 204);
     color: white;
     padding: 8px 16px;
-    text-decoration: none;
-    cursor: pointer;
+    float: right;
 }
 
 .confirm_deletion {
@@ -88,8 +103,7 @@ img {
     border: 2px solid red;
     color: red;
     padding: 8px 16px;
-    text-decoration: none;
-    cursor: pointer;
+    float: right;
 }
 
 .loading {
@@ -99,7 +113,7 @@ img {
     width: 10em;
     position: absolute;
     top: 50%;
-    left: 47%;
+    left: 45%;
     margin-top: -10em;
     margin-left: -10em;
 }
