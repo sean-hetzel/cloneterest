@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // create pin image url input
     const imageUrl = document.createElement("input");
     imageUrl.placeholder = "Image URL";
+    imageUrl.type = "url";
+    imageUrl.required = true;
 
     // create pin name input
     const imageName = document.createElement("input");
@@ -85,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(function(json) {
             json.forEach(function(pin) {
+                console.log(pin);
                 document.getElementById("loading").style.display = "none";
                 renderPins(pin);
             });
@@ -113,15 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
         pinDesc.textContent = pin.description;
 
         // create like button
-        const likeButton = document.createElement("img")
-        likeButton.classList.add("heart", "button")
-        likeButton.src = "Heart-icon-outline.png"
-        likeButton.alt = "Like"
+        const likeButton = document.createElement("img");
+        likeButton.classList.add("heart", "button");
+        likeButton.src = "Heart-icon-outline.png";
+        likeButton.alt = "Like";
 
         // create like count
-        const likeCount = document.createElement("p")
-        likeCount.classList.add("like_count")
-        likeCount.textContent = "10"
+        const likeCount = document.createElement("p");
+        likeCount.classList.add("like_count");
+        likeCount.textContent = pin.likes;
 
         // create confirm deletion button
         const deleteConfirmButton = document.createElement("button");
@@ -146,8 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
         pinCard.appendChild(pinImage);
         pinCard.appendChild(pinName);
         pinCard.appendChild(pinDesc);
-        pinCard.appendChild(likeButton)
-        pinCard.appendChild(likeCount)
+        pinCard.appendChild(likeButton);
+        pinCard.appendChild(likeCount);
         pinCard.appendChild(deleteButton);
         pinCard.appendChild(deleteConfirmButton);
 
