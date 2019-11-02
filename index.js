@@ -106,31 +106,58 @@ document.addEventListener("DOMContentLoaded", () => {
         pinImage.onclick = function() {
             window.location.href = pin.url;
         };
+        pinCard.appendChild(pinImage);
 
         // create pin name
         const pinName = document.createElement("h2");
         pinName.textContent = pin.name;
+        pinCard.appendChild(pinName);
 
         // create pin description
         const pinDesc = document.createElement("p");
         pinDesc.textContent = pin.description;
-
-        // create like button
-        const likeButton = document.createElement("img");
-        likeButton.classList.add("heart", "button");
-        likeButton.src = "Heart-icon-outline.png";
-        likeButton.alt = "Like";
+        pinCard.appendChild(pinDesc);
 
         // create like count
         const likeCount = document.createElement("p");
         likeCount.classList.add("like_count");
-        likeCount.textContent = pin.likes;
+
+        // create like button
+        const likeButton = document.createElement("img");
+        likeButton.classList.add("heart", "button");
+        if (pin.likes > 0) {
+            likeButton.src = "Heart-icon.png";
+            likeCount.textContent = pin.likes.toLocaleString();
+        } else {
+            likeButton.src = "Heart-icon-outline.png";
+            likeCount.textContent = "";
+        }
+        likeButton.alt = "Like";
+        likeButton.addEventListener("click", () => {
+            fetch(`${URL}/${pin.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    likes: pin.likes + 1
+                })
+            })
+                .then(response => response.json())
+                .then(pin => {
+                    console.log(pin)
+                });
+        });
+        pinCard.appendChild(likeButton);
+        pinCard.appendChild(likeCount);
 
         // create confirm deletion button
         const deleteConfirmButton = document.createElement("button");
         deleteConfirmButton.classList.add("confirm_deletion", "button");
         deleteConfirmButton.textContent = "Confirm Deletion";
         deleteConfirmButton.style.display = "none";
+        pinCard.appendChild(deleteConfirmButton);
 
         // create delete button with fetch to delete pin from pins.json database
         const deleteButton = document.createElement("button");
@@ -144,15 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             fetch(`${URL}/${pin.id}`, { method: "DELETE" });
             pinCard.remove();
         });
-
-        // append image, name, description & delete button to pin card
-        pinCard.appendChild(pinImage);
-        pinCard.appendChild(pinName);
-        pinCard.appendChild(pinDesc);
-        pinCard.appendChild(likeButton);
-        pinCard.appendChild(likeCount);
         pinCard.appendChild(deleteButton);
-        pinCard.appendChild(deleteConfirmButton);
 
         // append pin to pins div
         document.getElementById("pins_div").prepend(pinCard);
