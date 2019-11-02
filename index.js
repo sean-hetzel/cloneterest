@@ -146,8 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
             })
                 .then(response => response.json())
                 .then(pin => {
-                    console.log(pin)
+                    likeCount.textContent = pin.likes;
                 });
+                likeButton.src = "Heart-icon.png";
         });
         pinCard.appendChild(likeButton);
         pinCard.appendChild(likeCount);

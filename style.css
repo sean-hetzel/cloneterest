@@ -83,11 +83,17 @@ img {
 .heart {
     width: 2em;
     height: auto;
+    transition: .25s;
+}
+
+.heart:hover {
+    transform: scale(1.25);
 }
 
 .like_count {
     display: inline-flex;
     margin-left: .25em;
+    margin-bottom: 0%;
 }
 
 .delete_post {
