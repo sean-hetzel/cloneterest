@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(function(json) {
             json.forEach(function(pin) {
-                console.log(pin);
                 document.getElementById("loading").style.display = "none";
                 renderPins(pin);
             });
