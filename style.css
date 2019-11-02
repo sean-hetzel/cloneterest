@@ -58,9 +58,8 @@ input {
 }
 
 .parent {
-    column-count: 4;
     margin: 2em 2em 2em 2em;
-    column-width: 25%;
+    column-width: 20em;
 }
 
 .pin_card {
