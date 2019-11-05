@@ -3,7 +3,7 @@ Idea board for images much like Pinterest. The Pins are organized in a masonry l
 
 https://seanhetzel.github.io/cloneterest/
 
-![Demo of C L O N E T E R E S T](cloneterest-screenshot-1.jpg)
+![C L O N E T E R E S T](cloneterest-screenshot-2.PNG)
 
 # Usage
 Users can:
