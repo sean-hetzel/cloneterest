@@ -2,7 +2,6 @@
     "name": "cloneterest",
     "version": "1.0.0",
     "description": "Like Pinterest but better",
-    "homepage": "https://cloneterest.com",
     "main": "index.js",
     "scripts": {
         "start": "node server.js",
