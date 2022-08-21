@@ -2,7 +2,7 @@
 
 Idea board for images much like Pinterest. The Pins are organized in a masonry layout.
 
-https://sean-hetzel.github.io/cloneterest/
+https://cloneterest.com
 
 ![C L O N E T E R E S T](cloneterest-screenshot-3.png)
 
